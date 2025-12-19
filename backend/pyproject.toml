@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "soeirotech"
+version = "0.1.0"
+description = "Backend Clean Golden™ com Django e DRF"
+authors = ["Marcio Soeiro"]
+license = "MIT"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^6.0"
+djangorestframework = "^3.16.1"
+djangorestframework-simplejwt = "^5.5.1"
+django-cors-headers = "^4.9.0"
+drf-spectacular = "^0.29.0"
+psycopg2-binary = "^2.9.11"
+django-extensions = "^4.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

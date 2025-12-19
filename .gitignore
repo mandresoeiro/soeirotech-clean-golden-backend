@@ -1,0 +1,40 @@
+# ============================
+# 🧠 SoeiroTech Clean Golden™
+# Django + Docker + Postgres + MkDocs
+# ============================
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pyc
+*.so
+
+# ---- Virtualenv ----
+.venv/
+venv/
+env/
+ENV/
+
+# ---- Ambiente local ----
+.env
+.env.local
+.env.*.local
+
+# ---- Django ----
+db.sqlite3
+*.log
+media/
+staticfiles/
+*.pot
+*.py,cover
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.pyc
+*.pyo

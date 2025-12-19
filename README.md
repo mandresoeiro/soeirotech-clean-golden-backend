@@ -1,3 +1,8 @@
+🧠 SoeiroTech Clean Golden™ Backend
+
+Backend Django + DRF + JWT + Docker + PostgreSQL com arquitetura limpa e modular, pronto para integração com qualquer frontend (React, Next.js, etc).
+Base profissional reutilizável para projetos SoeiroTech™.
+
 # SoeiroTech Clean Golden Backend (Template)
 
 Este repositório é um template profissional para projetos Django + DRF, pronto para produção, com autenticação JWT, PostgreSQL, Redis e Docker Compose.
@@ -32,9 +37,3 @@ Este repositório é um template profissional para projetos Django + DRF, pronto
 - `/scripts` — scripts utilitários
 - `/soeirotech-clean-base` — coleções e exemplos
 - `.gitignore` — já configurado para template
-
-## Licença
-MIT
-
----
-SoeiroTech © 2025
