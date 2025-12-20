@@ -1,0 +1,76 @@
+{
+  "info": {
+    "_postman_id": "bce35a2e-6d8a-4f13-abc7-9b4f4e1f7a10",
+    "name": "SoeiroTech Clean Golden - Accounts",
+    "description": "Endpoints REST do módulo Accounts (User Service Layer). Compatível com Postman/Portman.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"dev@soeirotech.com\",\n  \"full_name\": \"Marcio Dev\",\n  \"password\": \"dev123\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/users/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "users", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Activate User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/users/1/activate/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "users", "1", "activate", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Verify User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/users/1/verify/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "users", "1", "verify", ""]
+        }
+      },
+      "response": []
+    }
+  ]
+}

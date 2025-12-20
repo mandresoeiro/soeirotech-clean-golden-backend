@@ -1,0 +1,77 @@
+{
+  "info": {
+    "_postman_id": "91d89a87-07c3-4f61-8d13-6f833b201111",
+    "name": "SoeiroTech Clean Golden — Security",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "devillint"
+  },
+  "item": [
+    {
+      "name": "Security",
+      "item": [
+        {
+          "name": "Login (Mock)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/security/login/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "security", "login"]
+            },
+            "description": "Mock de autenticação — simula um login básico retornando tokens e dados de usuário."
+          },
+          "response": [
+            {
+              "name": "200 OK — Login realizado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"123456\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/security/login/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "security", "login"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"access_token\": \"fake-jwt-token-1234567890\",\n  \"refresh_token\": \"fake-refresh-token-abcdefg\",\n  \"user\": {\n    \"username\": \"admin\",\n    \"role\": \"superuser\"\n  }\n}"
+            },
+            {
+              "name": "401 Unauthorized — Credenciais inválidas",
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"detail\": \"Credenciais inválidas.\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ]
+}

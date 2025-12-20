@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "Accounts",
+    "_postman_id": "c9f5b3b2-94e1-4c56-bdd1-abc12345abcd",
+    "description": "Endpoints do módulo Accounts (usuários) do SoeiroTech Clean Golden™",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET - Listar Usuários",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/accounts/users/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "accounts", "users", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Criar Usuário",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"novo@soeirotech.com\",\n  \"full_name\": \"Usuário Novo\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/accounts/users/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "accounts", "users", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Ativar Usuário",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/accounts/users/{{user_id}}/activate/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "accounts", "users", "{{user_id}}", "activate", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Verificar Usuário",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/accounts/users/{{user_id}}/verify/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "accounts", "users", "{{user_id}}", "verify", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Perfil do Usuário Autenticado (/me)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/accounts/users/me/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "accounts", "users", "me", ""]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:8000" },
+    { "key": "access_token", "value": "" },
+    { "key": "user_id", "value": "1" }
+  ]
+}

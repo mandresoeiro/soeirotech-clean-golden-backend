@@ -1,0 +1,177 @@
+{
+  "info": {
+    "_postman_id": "f2bb1209-5d24-4d9e-b28c-0538c2f9a77b",
+    "name": "SoeiroTech Clean Golden",
+    "description": "Coleção completa da API SoeiroTech Clean Golden — System, Accounts e Security.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "System",
+      "item": [
+        {
+          "name": "GET - Health Check",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/health/",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["health", ""]
+            },
+            "description": "Verifica se o sistema está saudável (200 OK)."
+          }
+        },
+        {
+          "name": "GET - Status Check",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/status/",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["status", ""]
+            },
+            "description": "Verifica o status geral do backend."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "GET - List Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "users", ""]
+            }
+          }
+        },
+        {
+          "name": "POST - Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"dev@soeirotech.com\",\n  \"full_name\": \"Marcio Dev\",\n  \"password\": \"dev123\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "users", ""]
+            }
+          }
+        },
+        {
+          "name": "POST - Activate User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{}" },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/1/activate/",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "users", "1", "activate", ""]
+            }
+          }
+        },
+        {
+          "name": "POST - Verify User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{}" },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/users/1/verify/",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "users", "1", "verify", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Security",
+      "item": [
+        {
+          "name": "POST - Login (Mock)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"dev@soeirotech.com\",\n  \"password\": \"dev123\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/security/login/",
+              "protocol": "http",
+              "host": ["127.0.0.1"],
+              "port": "8000",
+              "path": ["api", "security", "login", ""]
+            },
+            "description": "Endpoint mockado de login. Retorna token simulado para testes."
+          },
+          "response": [
+            {
+              "name": "Exemplo de resposta",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  { "key": "Content-Type", "value": "application/json" },
+                  { "key": "Accept", "value": "application/json" }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/security/login/",
+                  "protocol": "http",
+                  "host": ["127.0.0.1"],
+                  "port": "8000",
+                  "path": ["api", "security", "login", ""]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "body": "{\n  \"access_token\": \"mocked.jwt.token.12345\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600,\n  \"user\": {\n    \"email\": \"dev@soeirotech.com\",\n    \"role\": \"admin\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

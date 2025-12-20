@@ -1,0 +1,106 @@
+{
+  "info": {
+    "_postman_id": "uuid-gerado",
+    "name": "SoeiroTech API v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Root",
+      "item": [
+        {
+          "name": "Health check",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Security",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@soeirotech.dev\",\n  \"password\": \"123456\"\n}"
+            },
+            "url": "{{base_url}}/security/login/"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let data = pm.response.json();",
+                  "if (data.access) pm.environment.set('jwt_access_token', data.access);",
+                  "if (data.refresh) pm.environment.set('jwt_refresh_token', data.refresh);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Refresh",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{jwt_refresh_token}}\"\n}"
+            },
+            "url": "{{base_url}}/security/refresh/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_access_token}}" }
+            ],
+            "url": "{{base_url}}/accounts/me/"
+          }
+        },
+        {
+          "name": "Change password",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwt_access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"old_password\": \"123456\",\n  \"new_password\": \"654321\"\n}"
+            },
+            "url": "{{base_url}}/accounts/change_password/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "System",
+      "item": [
+        { "name": "Health", "request": { "method": "GET", "url": "{{base_url}}/system/health/" } },
+        { "name": "Status", "request": { "method": "GET", "url": "{{base_url}}/system/status/" } }
+      ]
+    },
+    {
+      "name": "Docs",
+      "item": [
+        { "name": "Swagger", "request": { "method": "GET", "url": "{{base_url}}/../docs/" } },
+        { "name": "Schema", "request": { "method": "GET", "url": "{{base_url}}/../schema/" } }
+      ]
+    }
+  ]
+}

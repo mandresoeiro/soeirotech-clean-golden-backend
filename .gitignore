@@ -38,3 +38,71 @@ coverage.xml
 *.cover
 *.pyc
 *.pyo
+*.pyd
+__pycache__/
+
+# ---- Migrations compiladas ----
+*/migrations/__pycache__/
+*/migrations/*.pyc
+*/migrations/*.pyo
+
+# ---- IDEs e Editores ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- Docker ----
+# Não ignore o docker-compose.yml (importante!)
+docker-compose.override.yml
+*.pid
+*.seed
+*.bak
+
+# ---- PostgreSQL volumes ----
+data/
+postgres-data/
+pgdata/
+tmp/
+
+# ---- Testes ----
+tests/__pycache__/
+*.testsettings
+*.spec
+*.un~
+reports/
+.junit/
+.coverage
+
+# ---- MkDocs ----
+site/
+docs_build/
+docs_cache/
+mkdocs_build/
+
+# ---- Postman collections (geradas) ----
+*.postman_environment.json
+*.postman_collection.json
+
+# ---- Node (para frontend, se dentro do mesmo repo) ----
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# ---- SO específico ----
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ---- PyCharm / JetBrains ----
+.idea/
+*.iml
+out/
+
+# ---- Backup e temporários ----
+*.bak
+*.tmp
+*.temp
+~$*

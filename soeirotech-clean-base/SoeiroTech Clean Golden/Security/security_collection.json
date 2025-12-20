@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "Security",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-1234567890ff",
+    "description": "Endpoints de autenticação JWT real e mock para SoeiroTech Clean Golden.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST - Login (JWT Real)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"teste@soeirotech.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/security/login/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "security", "login", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Refresh Token (JWT)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refresh\": \"<refresh_token>\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/security/refresh/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "security", "refresh", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Login (Mock)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/security/login/mock/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "security", "login", "mock", ""]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:8000" }
+  ]
+}

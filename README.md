@@ -37,3 +37,23 @@ Este repositório é um template profissional para projetos Django + DRF, pronto
 - `/scripts` — scripts utilitários
 - `/soeirotech-clean-base` — coleções e exemplos
 - `.gitignore` — já configurado para template
+
+## Teste rápido de endpoints
+- Healthcheck:
+  ```bash
+  curl http://127.0.0.1:8000/api/v1/system/health/
+  ```
+- Chat (POST):
+  ```bash
+  curl -X POST http://127.0.0.1:8000/api/v1/system/chat/ \
+    -H "Content-Type: application/json" \
+    -H "x-client-id: demo" \
+    -H "x-llm-model: claude-opus-4.5" \
+    -d '{"input":"Hello"}'
+  ```
+
+## Licença
+MIT
+
+---
+SoeiroTech © 2025

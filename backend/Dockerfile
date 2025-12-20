@@ -38,3 +38,26 @@ RUN pip install --no-cache-dir poetry
 # --------------------------
 # Copiar arquivos de dependências
 # --------------------------
+COPY pyproject.toml poetry.lock* ./
+
+# --------------------------
+# Instalar dependências do projeto
+# --------------------------
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi
+
+# --------------------------
+# Copiar todo o código-fonte
+# --------------------------
+COPY . .
+
+# --------------------------
+# Dar permissão de execução ao entrypoint
+# --------------------------
+RUN chmod +x scripts/entrypoint.sh
+
+# --------------------------
+# Expor porta e iniciar o servidor
+# --------------------------
+EXPOSE 8000
+ENTRYPOINT ["bash", "scripts/entrypoint.sh"]

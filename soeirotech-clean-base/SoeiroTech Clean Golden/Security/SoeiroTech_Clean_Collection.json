@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "SoeiroTech Clean Golden",
+    "_postman_id": "d4c9a8e9-3b55-4e7e-91e5-21bca8f33100",
+    "description": "Coleção de APIs internas (System, Integrations, Security, Common)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "System",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/system/health/"
+          },
+          "response": []
+        },
+        {
+          "name": "Status Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/system/status/"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Integrations",
+      "item": [
+        {
+          "name": "External Ping",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/api/integrations/ping/"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ]
+}
